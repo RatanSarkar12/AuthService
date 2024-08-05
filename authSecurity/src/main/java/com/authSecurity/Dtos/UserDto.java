@@ -17,8 +17,8 @@ public class UserDto {
 
     public static UserDto from(User user) {
         UserDto userDto = new UserDto();
-        userDto.setEmail(userDto.getEmail());
-        userDto.setRoles(userDto.getRoles());
+        userDto.setEmail(user.getEmail());
+        userDto.setRoles(user.getRoles());
         return userDto;
 
     }

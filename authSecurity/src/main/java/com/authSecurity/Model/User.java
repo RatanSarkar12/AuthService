@@ -1,11 +1,11 @@
 package com.authSecurity.Model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.xml.transform.sax.SAXTransformerFactory;
 import java.util.HashSet;
 import java.util.Set;
 @Entity
@@ -14,6 +14,6 @@ import java.util.Set;
 public class User extends BaseModel {
     private String email;
     private String password;
-    @ManyToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 }
