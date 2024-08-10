@@ -1,6 +1,7 @@
 package com.authSecurity.test;
-
-
+import com.authSecurity.AuthService.AuthService;
+import com.authSecurity.Dtos.UserDto;
+import com.authSecurity.Exceptions.UserAlreadyExistException;
 import com.authSecurity.security.repository.JpaRegisteredClientRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class TestingAuth {
 
     private BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder();
 
+    @Autowired
+    private AuthService authService;
 
     @Test
     public void addNewClient() {
@@ -43,5 +46,11 @@ public class TestingAuth {
                 .build();
 
         jpaRegisteredClientRepository.save(oidcClient);
+    }
+    @Test
+    public void addNewUser() throws UserAlreadyExistException {
+        String email = "postman@postman.com";
+        String password = "postman";
+        UserDto userDto = authService.signUp(email,password);
     }
 }

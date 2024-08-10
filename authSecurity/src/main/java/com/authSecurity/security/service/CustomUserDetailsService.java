@@ -1,5 +1,4 @@
 package com.authSecurity.security.service;
-
 import com.authSecurity.Model.User;
 import com.authSecurity.repositories.UserRepository;
 import com.authSecurity.security.Models.CustomUserDetails;
@@ -14,6 +13,7 @@ import java.util.Optional;
 @Service
 @JsonDeserialize
 public class CustomUserDetailsService implements UserDetailsService {
+
     private UserRepository userRepository;
 
     public CustomUserDetailsService(UserRepository userRepository) {
